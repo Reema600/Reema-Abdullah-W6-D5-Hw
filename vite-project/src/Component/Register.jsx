@@ -3,7 +3,6 @@ import {
     Button,
     Checkbox,
     Container,
-    Divider,
     FormControl,
     FormLabel,
     Heading,
@@ -13,112 +12,130 @@ import {
     Text,
   } from '@chakra-ui/react'
   
-  import { GoogleLoginButton,GithubLoginButton,TwitterLoginButton } from "react-social-login-buttons";
+  // import { GoogleLoginButton,GithubLoginButton,TwitterLoginButton } from "react-social-login-buttons";
  
-  
-  import { Link } from 'react-router-dom'
-  import Footer from "./Footer.Jsx";
+  import { Alert } from '@chakra-ui/react'
+  // import {  Alert } from 'react-router-dom'
+  // import Footer from "./Footer.Jsx";
   import { CgProfile } from "react-icons/cg";
-  import { useState, useEffect} from 'react'
+  import { useState} from 'react'
 //   import {Link} from 'react-router-dom'
-
+import Login from '../Component/Login'
 export default function Register() {
-    const [user, setUser] = useState({
-        userName:'',
-        password:'',
-        email:''
-      })
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+ 
 
-      useEffect(()=>{
-     localStorage.setItem('user',JSON.stringify(user))
-      },[user]);
+  const [flag, setFlag] = useState(false);
+  const [login, setLogin] = useState(true);
+  
 
-      const logIn = (e)=>{
-e.pr
-        // if( user.userName == "" && user.password.length <=3){
-        //   alert("Falls ")
-        // }else{
-        //   alert("you are log In ")
-        // }
-       
-      }
+
+  function handleFormSubmit(e) {
+    e.preventDefault();
+
+    if (!name || !email || !password  ) {
+      setFlag(true);
+    } else {
+      setFlag(false);
+      localStorage.setItem("sanskarEmail", JSON.stringify(email));
+      localStorage.setItem(
+        "sanskarPassword",
+        JSON.stringify(password)
+      );
+      console.log("Saved in Local Storage");
+
+      setLogin(!login);
+    }
+  }
+
+  function handleClick() {
+    setLogin(!login);
+  }
       
   return (
     <div>
-         {/* <NavBar></NavBar> */}
-        {/* <Link to='/'>{props.home}</Link>  */}
-        <Container maxW="lg" py={{ base: '12', md: '24' }} px={{ base: '0', sm: '8' }}>
-    <Stack spacing="8">
-      <Stack spacing="6">
-        {/* <Logo /> */}
-        <center>
-        < CgProfile size='100px'/>
-        </center>
-        
-        <Stack spacing={{ base: '2', md: '3' }} textAlign="center">
-          <Heading size={{ base: 'xs', md: 'sm' }}>Create an account</Heading>
-          <HStack spacing="1" justify="center">
-            <Text color="fg.muted"> Already have an account?
 
-</Text>
-            <Button variant="text" colorScheme="blue">
-              Log in
-            </Button>
-          </HStack>
-        </Stack>
-      </Stack>
-      <Box
-        py={{ base: '0', sm: '8' }}
-        px={{ base: '4', sm: '10' }}
-        bg={{ base: 'transparent', sm: 'bg.surface' }}
-        boxShadow={{ base: 'none', sm: 'md' }}
-        borderRadius={{ base: 'none', sm: 'xl' }}
-      >
-        <Stack spacing="6">
-          <Stack spacing="5">
-          <FormControl>
-              <FormLabel htmlFor="name">Name</FormLabel>
-              <Input id="name" type="name" value={user.userName}
-               onChange={(e)=>setUser({...user,userName:e.target.value})}/>
-            </FormControl>
-            <FormControl>
-              <FormLabel htmlFor="email">Email</FormLabel>
-              <Input id="email" type="email" value={user.email} 
-              onChange={(e)=>setUser({...user,email:e.target.value})} />
-            </FormControl>
-            <FormControl>
-              <FormLabel htmlFor="password">Password</FormLabel>
-              <Input id="password" type="password"  value={user.password}
-               onChange={(e)=>setUser({...user,password:e.target.value})}/>
-            </FormControl>
-            {/* <PasswordField /> */}
-          </Stack>
-          <HStack justify="space-between">
-            <Checkbox defaultChecked>Remember me</Checkbox>
-            <Button variant="text" colorScheme="blue" size="sm">
-              Forgot password?
-            </Button>
-          </HStack>
+<div>
+{" "}
+          {login ? ( 
+           
+          <>
+         
+        <Container maxW="lg" py={{ base: '12', md: '24' }} px={{ base: '0', sm: '8' }}>
+        <Stack spacing="8">
           <Stack spacing="6">
-            <Link to='/login'>
-            <Button onClick={logIn} >Create Account</Button>
-          </Link>
-            <HStack>
-              <Divider />
-              <Text fontSize="sm" whiteSpace="nowrap" color="fg.muted">
-              or sign up with
-              </Text>
-              <Divider />
-            </HStack>
-            <GoogleLoginButton onClick={() => alert("Hello")}  />
-            <GithubLoginButton onClick={() => alert("Hello")} />
-            <TwitterLoginButton onClick={() => alert("Hello")} />
+            {/* <Logo /> */}
+            <center>
+            < CgProfile size='100px'/>
+            </center>
+            
+            <Stack spacing={{ base: '2', md: '3' }} textAlign="center">
+              <Heading size={{ base: 'xs', md: 'sm' }}>Create an account</Heading>
+              <HStack spacing="1" justify="center">
+                <Text color="fg.muted"> Already have an account?
+    
+    </Text>
+                <Button variant="text" colorScheme="blue">
+                  Log in
+                </Button>
+              </HStack>
+            </Stack>
           </Stack>
+          <Box
+            py={{ base: '0', sm: '8' }}
+            px={{ base: '4', sm: '10' }}
+            bg={{ base: 'transparent', sm: 'bg.surface' }}
+            boxShadow={{ base: 'none', sm: 'md' }}
+            borderRadius={{ base: 'none', sm: 'xl' }}
+          >
+            <Stack spacing="6">
+              <Stack spacing="5">
+              <FormControl>
+                  <FormLabel htmlFor="name">Name</FormLabel>
+                  <Input id="name" type="name"  onChange={(event) => setName(event.target.value)}/>
+                </FormControl>
+                <FormControl>
+                  <FormLabel htmlFor="email">Email</FormLabel>
+                  <Input id="email" type="email" onChange={(event) => setEmail(event.target.value)} />
+                </FormControl>
+                <FormControl>
+                  <FormLabel htmlFor="password">Password</FormLabel>
+                  <Input id="password" type="password"   onChange={(event) => setPassword(event.target.value)}/>
+                </FormControl>
+                {/* <PasswordField /> */}
+              </Stack>
+              <HStack justify="space-between">
+                <Checkbox defaultChecked>Remember me</Checkbox>
+                <Button variant="text" colorScheme="blue" size="sm">
+                  Forgot password?
+                </Button>
+              </HStack>
+              <Stack spacing="6">
+                
+                <Button type="submit" onClick={handleClick}>Create Account</Button>
+                <p onClick={handleClick} className="forgot-password text-right">
+                Already registered{" "}log in?
+                
+              </p>
+              {flag && (
+                <Alert color="primary" variant="danger">
+                  Every Field is important!
+                </Alert>
+              )}
+              
+              </Stack>
+            </Stack>
+          </Box>
         </Stack>
-      </Box>
-    </Stack>
-  </Container>
-        <Footer></Footer>
+      </Container>
+            {/* // <Footer></Footer> */}
+            </>
+           ) : (
+            <Login />
+          )}
+        </div>
     </div>
   )
 }

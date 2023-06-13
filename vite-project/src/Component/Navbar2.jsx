@@ -12,7 +12,7 @@ import {
   import { FiMenu } from 'react-icons/fi'
   import { Link } from "react-router-dom";
 //   import { Logo } from './Logo'
-export default function Navbar2() {
+export default function Navbar2(props) {
     const isDesktop = useBreakpointValue({ base: false, lg: true })
   return (
     <div>
@@ -34,7 +34,7 @@ export default function Navbar2() {
                 <HStack spacing="3">
 
                   <Button variant="tertiary">
-                  <Link to='/log'>Login</Link>
+                  <Link to='/log'>{props.Loginn}</Link>
                   </Button>
                   
                   <Link to='/reg'>

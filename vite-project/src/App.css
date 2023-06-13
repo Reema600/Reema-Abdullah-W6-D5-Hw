@@ -39,11 +39,11 @@
 
 .read-the-docs {
   color: #888;
-} */ */
+} */ */ */
 /* ===================================== */
- /* .templateContainer{
+  /* .templateContainer{
   margin: 5% 0;
-}
+} 
 .templateContainer > .searchInput_Container{
   display: flex;
   align-items: center;
@@ -70,7 +70,7 @@
   height: 150px;
 } */
 /* ========================================================= */
-.app {
+/* .app {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -88,7 +88,7 @@ form{
     border-style: solid black;
    /* margin-top: 10px;
    margin-bottom: 10px; */
-}
+/* }
 .logo{
   text-align: center;
   font-weight: bolder;
@@ -128,9 +128,9 @@ button{
   width: 100%;
   height: 0rem; 
 
-}
+} */
 /* =============================================== */
-*{
+/* *{
   margin: 0;
 }
 .navbar-light {
@@ -154,11 +154,11 @@ button{
 
 p{
   font-size: large;
-}
-
+} */
+ */
 
 /* ==================================== */
-  .outer {
+  /* .outer {
     display: flex;
     justify-content: center;
     flex-direction: column;
@@ -203,4 +203,4 @@ p{
   
   .forgot-password a {
     color: #167bff;
-  }
+  } 

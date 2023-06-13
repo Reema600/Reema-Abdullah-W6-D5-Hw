@@ -73,20 +73,6 @@ export default function Registeration() {
                   onChange={(event) => setPassword(event.target.value)}
                 />
               </div>
-
-              {/* <div className="form-group">
-                <label>Phone No.</label>
-                <input
-                  type="Phone"
-                  className="form-control"
-                  placeholder="Enter contact no"
-                  onChange={(event) => setPhone(event.target.value)}
-                />
-              </div> */}
-
-              
-               
-
               <button type="submit" className="btn btn-dark btn-lg btn-block">
                 Register
               </button>

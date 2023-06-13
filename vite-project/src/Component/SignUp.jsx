@@ -11,7 +11,6 @@ import {
     Input,
     Stack,
     Text,
-    
   } from '@chakra-ui/react'
   
   import { GoogleLoginButton,GithubLoginButton,TwitterLoginButton } from "react-social-login-buttons";
@@ -19,14 +18,14 @@ import {
   // import { OAuthButtonGroup } from './OAuthButtonGroup'
   // import { PasswordField } from './PasswordField'
   
- 
+  // import { Link } from 'react-router-dom'
   import Footer from "./Footer.Jsx";
   import { CgProfile } from "react-icons/cg";
-  import {Link} from 'react-router-dom'
-export default function Login() {
+
+export default function signUp() {
   return (
     <div>
- {/* <NavBar></NavBar> */}
+         {/* <NavBar></NavBar> */}
         {/* <Link to='/'>{props.home}</Link>  */}
         <Container maxW="lg" py={{ base: '12', md: '24' }} px={{ base: '0', sm: '8' }}>
     <Stack spacing="8">
@@ -39,12 +38,10 @@ export default function Login() {
         <Stack spacing={{ base: '2', md: '3' }} textAlign="center">
           <Heading size={{ base: 'xs', md: 'sm' }}>Log in to your account</Heading>
           <HStack spacing="1" justify="center">
-            <Text color="fg.muted"> Don &apos;t have an account?</Text>
-<Link to='/register'>
+            <Text color="fg.muted"> Don't have an account?</Text>
             <Button variant="text" colorScheme="blue">
               Sign up
             </Button>
-            </Link>
           </HStack>
         </Stack>
       </Stack>
@@ -61,10 +58,6 @@ export default function Login() {
               <FormLabel htmlFor="email">Email</FormLabel>
               <Input id="email" type="email" />
             </FormControl>
-            <FormControl>
-              <FormLabel htmlFor="password">Password</FormLabel>
-              <Input id="password" type="password" />
-            </FormControl>
             {/* <PasswordField /> */}
           </Stack>
           <HStack justify="space-between">
@@ -74,9 +67,7 @@ export default function Login() {
             </Button>
           </HStack>
           <Stack spacing="6">
-            <Link to='/search'>
             <Button variant="primary">Sign in</Button>
-            </Link>
             <HStack>
               <Divider />
               <Text fontSize="sm" whiteSpace="nowrap" color="fg.muted">
@@ -92,7 +83,7 @@ export default function Login() {
       </Box>
     </Stack>
   </Container>
-       
+        <Footer></Footer>
     </div>
   )
 }
